@@ -1,15 +1,15 @@
 import { get, writable } from "svelte/store";
 
-export const mobile = writable(false)
-export const visibleMobile = writable(false)
-export const visibleDesktop = writable(true)
+export const Mobile = writable(false)
+export const VisibleMobile = writable(false)
+export const VisibleDesktop = writable(true)
 export const InViewport = writable(false)
 
 export const SidebarToggle = () => {
-    if (get(mobile)) {
-        visibleMobile.set(!get(visibleMobile))
+    if (get(Mobile)) {
+        VisibleMobile.set(!get(VisibleMobile))
     } else {
-        visibleDesktop.set(!get(visibleDesktop))
+        VisibleDesktop.set(!get(VisibleDesktop))
     }
 }
 

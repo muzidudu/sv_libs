@@ -13,7 +13,7 @@
 		| ClassArray
 		| ClassDictionary
 		| null
-		| undefined;
+		| undefined = undefined;
 </script>
 
-<svelte:element this={as} class={clsx('card-subtitle', className)}><slot /></svelte:element>
+<svelte:element this={as} class={clsx('card-footer', className)}><slot /></svelte:element>

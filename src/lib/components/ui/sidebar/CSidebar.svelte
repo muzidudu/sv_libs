@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
-	import { InViewport, isInViewPort, mobile, visibleDesktop, visibleMobile } from './Sidebar';
-	import { browser } from '$app/environment';
+	import { InViewport, isInViewPort, Mobile, VisibleDesktop, VisibleMobile } from './CSidebarUtil';
+	import { BROWSER } from 'esm-env';
 
 	export let position: 'fixed' | 'sticky' = 'fixed';
 	export let overlaid: boolean = false;
@@ -9,7 +9,7 @@
 
 	onMount(() => {
 		handleResize();
-		if (browser) {
+		if (BROWSER) {
 			window.addEventListener('keyup', handleKeyup);
 			window.addEventListener('mouseup', handleClickOutside);
 			ref?.addEventListener('mouseup', handleOnClick);
@@ -19,7 +19,7 @@
 		}
 	});
 	onDestroy(() => {
-		if (browser) {
+		if (BROWSER) {
 			window.removeEventListener('mouseup', handleClickOutside);
 			window.removeEventListener('keyup', handleKeyup);
 			ref?.removeEventListener('mouseup', handleOnClick);
@@ -33,12 +33,12 @@
 		Boolean(getComputedStyle(element).getPropertyValue('--cui-is-mobile'));
 
 	const handleVisibleChange = (visible: boolean) => {
-		if ($mobile) {
-			visibleMobile.set(visible);
+		if ($Mobile) {
+			VisibleMobile.set(visible);
 			return;
 		}
 
-		visibleDesktop.set(visible);
+		VisibleDesktop.set(visible);
 	};
 
 	const handleHide = () => {
@@ -48,14 +48,14 @@
 	};
 
 	const handleResize = () => {
-		ref && mobile.set(isOnMobile(ref));
+		ref && Mobile.set(isOnMobile(ref));
 		ref && InViewport.set(isInViewPort(ref));
 	};
 
 	const handleKeyup = (event: Event) => {
 		console.log('handleKeyup');
 
-		if ($mobile && ref && !ref.contains(event.target as HTMLElement)) {
+		if ($Mobile && ref && !ref.contains(event.target as HTMLElement)) {
 			handleHide();
 		}
 	};
@@ -63,7 +63,7 @@
 	const handleClickOutside = (event: Event) => {
 		console.log('handleClickOutside');
 
-		if ($mobile && ref && !ref.contains(event.target as HTMLElement)) {
+		if ($Mobile && ref && !ref.contains(event.target as HTMLElement)) {
 			handleHide();
 		}
 	};
@@ -75,7 +75,7 @@
 		target &&
 			target.classList.contains('nav-link') &&
 			!target.classList.contains('nav-group-toggle') &&
-			$mobile &&
+			$Mobile &&
 			handleHide();
 	};
 </script>
@@ -86,11 +86,11 @@
 	class="sidebar"
 	class:sidebar-fixed={position == 'fixed'}
 	class:sidebar-sticky={position == 'sticky'}
-	class:show={($mobile && $visibleMobile) || (overlaid && $visibleDesktop)}
-	class:hide={!$visibleDesktop && !$mobile && !overlaid}
+	class:show={($Mobile && $VisibleMobile) || (overlaid && $VisibleDesktop)}
+	class:hide={!$VisibleDesktop && !$Mobile && !overlaid}
 >
 	<slot />
 </aside>
-{#if $mobile && $visibleMobile}
+{#if $Mobile && $VisibleMobile}
 	<div class="sidebar-backdrop"></div>
 {/if}

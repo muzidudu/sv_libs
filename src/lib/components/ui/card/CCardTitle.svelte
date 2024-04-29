@@ -3,7 +3,6 @@
 	export let as = 'div';
 
 	import clsx, { type ClassArray, type ClassDictionary } from 'clsx';
-	import { SidebarToggle } from './Sidebar';
 
 	/** @type {string} */
 	let className:
@@ -14,10 +13,7 @@
 		| ClassArray
 		| ClassDictionary
 		| null
-		| undefined;
+		| undefined = undefined;
 </script>
 
-<!-- svelte-ignore a11y-no-static-element-interactions -->
-<svelte:element this={as} on:click={() => SidebarToggle()} class={clsx('sidebar-toggle', className)}
-	><slot /></svelte:element
->
+<svelte:element this={as} class={clsx('card-title', className)}><slot /></svelte:element>
