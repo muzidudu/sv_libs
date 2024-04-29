@@ -1,7 +1,8 @@
 {
-	"name": "sv-libs",
+	"name": "@muzidudu/sv-libs",
 	"version": "0.0.1",
-	"private": false,
+	"license": "MIT",
+	"files": ["src/lib"],
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
