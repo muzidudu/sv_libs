@@ -42,8 +42,6 @@
 	};
 
 	const handleHide = () => {
-		console.log('handleHide');
-
 		handleVisibleChange(false);
 	};
 
@@ -53,24 +51,18 @@
 	};
 
 	const handleKeyup = (event: Event) => {
-		console.log('handleKeyup');
-
 		if ($Mobile && ref && !ref.contains(event.target as HTMLElement)) {
 			handleHide();
 		}
 	};
 
 	const handleClickOutside = (event: Event) => {
-		console.log('handleClickOutside');
-
 		if ($Mobile && ref && !ref.contains(event.target as HTMLElement)) {
 			handleHide();
 		}
 	};
 
 	const handleOnClick = (event: Event) => {
-		console.log('handleOnClick');
-
 		const target = event.target as HTMLAnchorElement;
 		target &&
 			target.classList.contains('nav-link') &&
