@@ -1,6 +1,6 @@
 {
 	"name": "@muzidudu/sv-libs",
-	"version": "0.0.3",
+	"version": "0.0.7",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
@@ -56,16 +56,19 @@
 		"esm-env": "^1.0.0"
 	},
 	"exports": {
+		".": {
+			"types": "./dist/types.d.ts"
+		},
 		"./ui": {
 			"types": "./dist/components/ui/index.d.ts",
 			"default": "./dist/components/ui/index.js",
 			"svelte": "./dist/components/ui/index.js"
 		},
-		"./assets/ui/card.scss": "./dist/assets/ui/card.scss",
-		"./assets/ui/footer.scss": "./dist/assets/ui/footer.scss",
-		"./assets/ui/header.scss": "./dist/assets/ui/header.scss",
-		"./assets/ui/main.scss": "./dist/assets/ui/main.scss",
-		"./assets/ui/sidebar.scss": "./dist/assets/ui/sidebar.scss",
-		"./assets/ui/global.scss": "./dist/assets/ui/global.scss"
+		"./styles/card.scss": "./dist/assets/ui/card.scss",
+		"./styles/footer.scss": "./dist/assets/ui/footer.scss",
+		"./styles/header.scss": "./dist/assets/ui/header.scss",
+		"./styles/main.scss": "./dist/assets/ui/main.scss",
+		"./styles/sidebar.scss": "./dist/assets/ui/sidebar.scss",
+		"./styles/global.scss": "./dist/assets/ui/global.scss"
 	}
 }
