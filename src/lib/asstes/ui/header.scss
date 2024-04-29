@@ -1,0 +1,44 @@
+.header {
+	--cui-header-min-height: 3rem;
+	--cui-header-padding-x: 0.5rem;
+	--cui-header-padding-y: 0.5rem;
+	--cui-header-bg: var(--cui-body-bg);
+	--cui-header-color: rgba(var(--cui-emphasis-color-rgb), 0.65);
+	--cui-header-border-color: var(--cui-border-color);
+	--cui-header-border: var(--cui-border-width) solid var(--cui-header-border-color);
+	--cui-header-hover-color: rgba(var(--cui-emphasis-color-rgb), 0.8);
+	--cui-header-disabled-color: rgba(var(--cui-emphasis-color-rgb), 0.3);
+	--cui-header-active-color: rgba(var(--cui-emphasis-color-rgb), 1);
+	--cui-header-transition: box-shadow 0.15s ease-in-out;
+	--cui-header-brand-padding-y: 0.3125rem;
+	--cui-header-brand-color: #212631;
+	--cui-header-brand-hover-color: #1e222c;
+	--cui-header-toggler-padding-x: 0.75rem;
+	--cui-header-toggler-padding-y: 0.25rem;
+	--cui-header-toggler-bg: transparent;
+	--cui-header-toggler-color: rgba(var(--cui-emphasis-color-rgb), 0.65);
+	--cui-header-toggler-border-radius: var(--cui-border-radius);
+	--cui-header-toggler-hover-color: rgba(var(--cui-emphasis-color-rgb), 1);
+	--cui-header-toggler-icon-bg: url(
+		data:image/svg + xml;charset=utf8,
+		%3CsvgviewBox='0 0 30 30'xmlns='http://www.w3.org/2000/svg'%3E%3Cpathstroke='rgba%28var%28--cui-emphasis-color-rgb%29, 0.65%29'stroke-width='2.25'stroke-linecap='round'stroke-miterlimit='10'd='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E
+	);
+	--cui-header-toggler-hover-icon-bg: url(
+		data:image/svg + xml;charset=utf8,
+		%3CsvgviewBox='0 0 30 30'xmlns='http://www.w3.org/2000/svg'%3E%3Cpathstroke='rgba%28var%28--cui-emphasis-color-rgb%29, 0.8%29'stroke-width='2.25'stroke-linecap='round'stroke-miterlimit='10'd='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E
+	);
+	--cui-header-nav-link-padding-x: 0.5rem;
+	--cui-header-nav-link-padding-y: 0.5rem;
+	--cui-header-divider-border-color: var(--cui-border-color);
+	--cui-header-divider-border: var(--cui-border-width) solid var(--cui-header-divider-border-color);
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--cui-header-padding-y) var(--cui-header-padding-x);
+	background: var(--cui-header-bg);
+	border-bottom: var(--cui-header-border);
+	transition: var(--cui-header-transition);
+	min-height: var(--cui-header-min-height);
+}
